@@ -14,3 +14,12 @@ app.use('/record', records);
 app.listen(PORT, () => {
   console.log(`Server is running on port: ${PORT}`);
 });
+
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header(
+    'Access-Control-Allow-Headers',
+    'Origin, X-Requested-With, Content-Type, Accept'
+  );
+  next();
+});
